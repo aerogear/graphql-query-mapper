@@ -60,7 +60,7 @@ export class QueryObject {
 
     /**
      * Expands single key structure returned from database to graph that can
-     * be returned by resolver. Method pics all fields that starts with relation name.
+     * be returned by resolver. Method picks all fields that starts with relation name.
      * For example 'relation__field' and puts them into nested relation structure.
      */
     expandToGraph(data: any) {
