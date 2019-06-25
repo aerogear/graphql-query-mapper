@@ -31,6 +31,7 @@ const resolvers = {
     }
   }
 }
+```
 
 ## API
 
