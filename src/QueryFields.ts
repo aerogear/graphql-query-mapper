@@ -19,7 +19,7 @@ import { QueryObject } from './QueryObject';
 *  }
 *  `
 */
-export const getQueryFields = (info: GraphQLResolveInfo) => {
+export const getQueryObject = (info: GraphQLResolveInfo) => {
   const fieldNodes = info.fieldNodes
   const fields = []
   const relations = {}

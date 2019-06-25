@@ -28,17 +28,14 @@ export class QueryObject {
      * Checks if object has specified relation
      */
     public hasRelation(name: string) {
-        return this.relations[name]
+        return !!this.relations[name]
     }
 
     /**
      * Returns root fields in format acceptable for most of the sql queries
      * @param separator - separates variables (default ,)
      */
-    public getRootFields(separator) {
-        if (!separator) {
-            separator = ','
-        }
+    public getRootFields(separator: string  = ',') {
         return this.fields.map((field) => {
             return `${field}`
         }).join(separator)
@@ -53,14 +50,8 @@ export class QueryObject {
       * By default `as` for PostgreSQL. Use `on`for mysql.
       * @param separator - separates variables (default ,)
       */
-    getRelationFields(relation, mapper, separator) {
+    getRelationFields(relation: string, mapper: string  = 'as', separator: string  = ',') {
         if (this.relations[relation]) {
-            if (!mapper) {
-                mapper = 'as'
-            }
-            if (!separator) {
-                separator = ','
-            }
             return this.relations[relation].map((field) => {
                 return `${field} ${mapper} ${relation}__${field}`
             }).join(separator)
@@ -72,7 +63,7 @@ export class QueryObject {
      * be returned by resolver. Method pics all fields that starts with relation name.
      * For example 'relation__field' and puts them into nested relation structure.
      */
-    expandToGraph(data) {
+    expandToGraph(data: any) {
         const relationKeys = Object.keys(this.relations);
         for (const relation of relationKeys) {
             for (const element of data) {
