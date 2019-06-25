@@ -1,0 +1,62 @@
+{
+  "name": "graphql-query-mapper",
+  "version": "0.1.0",
+  "description": "Query specific fields in resolvers",
+  "main": "dist/index.js",
+  "bin": {
+    "graphback": "dist/index.js"
+  },
+  "types": "types/index.d.ts",
+  "typescript": {
+    "definition": "types/index.d.ts"
+  },
+  "author": "wtrocki@redhat.com",
+  "scripts": {
+    "clean": "rimraf coverage dist types",
+    "build": "tsc",
+    "cmd": "node ./dist/index.js hello",
+    "watch": "tsc -w -p --help",
+    "lint": "tslint -t stylish --project \"tsconfig.json\"",
+    "test": "ava",
+    "pretest": "npm run build"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/aerogear/graphql-query-mapper.git"
+  },
+  "keywords": [
+    "graphql",
+    "resolvers"
+  ],
+  "ava": {
+    "files": [
+      "tests/**/*"
+    ],
+    "compileEnhancements": false,
+    "extensions": [
+      "ts"
+    ],
+    "require": [
+      "ts-node/register"
+    ]
+  },
+  "engines": {
+    "node": "12.4.0"
+  },
+  "devDependencies": {
+    "@types/node": "8.10.49",
+    "ava": "1.4.1",
+    "graphql": "^14.3.1",
+    "ts-node": "7.0.1",
+    "tslint": "5.11.0",
+    "typescript": "3.5.1"
+  },
+  "peerDependencies": {
+    "graphql": "^0.12.0 || ^0.13.0 || ^14.0.0"
+  },
+  "license": "Apache-2.0",
+  "bugs": {
+    "url": "https://github.com/aerogear/graphql-query-mapper/issues"
+  },
+  "homepage": "https://github.com/aerogear/graphql-query-mapper#readme"
+}

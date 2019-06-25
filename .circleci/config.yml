@@ -1,0 +1,46 @@
+version: 2
+jobs:
+  build:
+    working_directory: ~/querymapper
+    docker:
+      # Node 8 LTS
+      - image: circleci/node:lts-browsers
+      - image: circleci/postgres:latest
+        environment:
+          POSTGRES_PASSWORD: postgres
+          POSTGRES_USER: postgresql
+          POSTGRES_DB: users
+    steps:
+      - checkout
+      - run:
+          name: update-npm
+          command: 'sudo npm install -g npm@latest'
+      - restore_cache:
+          key: dependency-cache-{{ checksum "package.json" }}
+      - run:
+          name: install-dependencies
+          command: npm install
+      - run:
+          name: install-package-dependencies
+          command: npm run bootstrap
+      - save_cache:
+          key: dependency-cache-{{ checksum "package.json" }}
+          paths:
+            - ./node_modules
+      - run:
+          name: run lint
+          command: npm run lint
+      - run:
+          name: test
+          command: npm test
+  
+
+workflows:
+  version: 2
+  build:
+    jobs:
+      - build:
+          filters:
+            tags:
+              only: /.*/
+    
