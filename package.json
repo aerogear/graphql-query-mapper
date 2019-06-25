@@ -46,7 +46,10 @@
   "devDependencies": {
     "@types/node": "8.10.49",
     "ava": "1.4.1",
+    "express": "^4.17.1",
+    "express-graphql": "^0.8.0",
     "graphql": "^14.3.1",
+    "sqlite": "^3.0.3",
     "ts-node": "7.0.1",
     "tslint": "5.11.0",
     "typescript": "3.5.1"

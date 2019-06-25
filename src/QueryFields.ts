@@ -20,11 +20,13 @@ import { QueryObject } from './QueryObject';
 *  `
 */
 export const getQueryObject = (info: GraphQLResolveInfo) => {
-  const fieldNodes = info.fieldNodes
   const fields = []
   const relations = {}
-  if (fieldNodes || fieldNodes.length !== 0) {
-    visitNodes(info, fieldNodes[0].selectionSet, fields, relations)
+  if (info) {
+    const fieldNodes = info.fieldNodes
+    if (fieldNodes || fieldNodes.length !== 0) {
+      visitNodes(info, fieldNodes[0].selectionSet, fields, relations)
+    }
   }
   return new QueryObject(fields, relations);
 }

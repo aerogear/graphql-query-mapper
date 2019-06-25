@@ -8,8 +8,8 @@
             "type": "node",
             "request": "launch",
             "name": "Launch Program",
-            "program": "${workspaceFolder}/examples/query-filters/queryFilters.js",
-            "cwd": "${workspaceFolder}/examples/query-filters/"
+            "program": "${workspaceFolder}/example/index.js",
+            "cwd": "${workspaceFolder}/example/"
         }
     ]
 }
