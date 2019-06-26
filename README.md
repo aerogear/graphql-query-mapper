@@ -1,11 +1,15 @@
 # GraphQL Query Mapper
 
-![resources/animation.gif](resources/animation.gif)
+<p align="center">
+  <img width="400" src="https://github.com/aerogear/graphql-query-mapper/raw/master/resources/animation.gif">
+  <br/>
 
-`GraphQL Query Mapper` transform resolver info object into structure that can be 
-used to filter out data that was queried by user. 
+  `GraphQL Query Mapper` transform resolver info object into structure that can be 
+  used to filter data based on fields queried by client. </br></br>
+  QueryMapper will help you to build GraphQL API without overfetching data on the server.
+</p>
 
-QueryMapper will help you to build GraphQL API without overfetching data on the server
+
 
 # Example use case
 
@@ -102,8 +106,6 @@ Derived fields  (for example `fullname` that consist of the `firstName`+`secondN
 - [x] Parsing info object
 - [x] Relational data query filtering
 - [ ] NoSQL data query filtering
-- [ ] NoSQL data query filtering
-- p
 
 ## License
 
