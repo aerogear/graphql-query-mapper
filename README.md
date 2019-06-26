@@ -3,13 +3,11 @@
 <p align="center">
   <img width="400" src="https://github.com/aerogear/graphql-query-mapper/raw/master/resources/animation.gif">
   <br/>
-
-  `GraphQL Query Mapper` transform resolver info object into structure that can be 
-  used to filter data based on fields queried by client. </br></br>
-  QueryMapper will help you to build GraphQL API without overfetching data on the server.
+  <b>GraphQL Query Mapper will help you to build GraphQL API</br> without overfetching data on the server. </b>
 </p>
 
-
+`GraphQL Query Mapper` transform resolvers `info` argument into structure that can be 
+  used to filter data based on fields queried by client.
 
 # Example use case
 
