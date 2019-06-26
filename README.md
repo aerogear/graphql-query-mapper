@@ -1,6 +1,18 @@
 # GraphQL Query Mapper
 
-Library to query your data in resolvers and map them to expected types.
+![resources/animation.gif](resources/animation.gif)
+
+`GraphQL Query Mapper` transform resolver info object into structure that can be 
+used to filter out data that was queried by user. 
+
+QueryMapper will help you to build GraphQL API without overfetching data on the server
+
+# Example use case
+
+When building public GraphQL API external developers can often missuse the queries. 
+For example `getProfile` query that does expensive fetch from different servers can be used 
+only to fetch `username` for home page. To prevent from overfetching we can extract 
+information about required fields from the info object and avoid expensive queries.
 
 ## Query Mapping 
 
@@ -10,7 +22,7 @@ Developers can use them to perform targeted queries against their database and r
 
 Library exposes following methods:
 
--  getQueryObject - provides list of fields that user queried with additional helpers for database access
+`getQueryObject`: provides list of fields that user queried with additional helpers for database access
 
 Example:
 ```javascript
@@ -18,16 +30,10 @@ import { getQueryObject} from 'graphql-query-mapper'
 
 const resolvers = {
   Query: {
-    dogs (_, params, context, info) {
+    models (_, params, context, info) {
       const queryData = getQueryObject(info)
-      // Example database queries
-      console.log(`SQL ROOT QUERY: 
-                   select ${queryData.getRootFields()} from Dog`)
-      if (queryData.hasRelation('mother')) {
-        console.log(`SQL RELATION QUERY: 
-                    select ${queryData.getRelationFields('mother')} from DoggyParents`)
-      }
-      // return results of 2 db queries
+      // Example database queries ()
+      console.log(`${queryData.getRootFields()}`)
     }
   }
 }
@@ -85,6 +91,23 @@ const resolvers = {
      */
     expandToGraph(data: any): any;
 ```
+
+
+## Limitations
+
+Derived fields  (for example `fullname` that consist of the `firstName`+`secondName` from database ) will now require additional checks in the resolver.
+
+## Roadmap
+
+- [x] Parsing info object
+- [x] Relational data query filtering
+- [ ] NoSQL data query filtering
+- [ ] NoSQL data query filtering
+- p
+
+## License
+
+Apache-2.0
 
 ## Notes
 
