@@ -34,7 +34,6 @@ const resolvers = {
   Query: {
     models (_, params, context, info) {
       const queryData = getQueryObject(info)
-      // Example database queries ()
       console.log(`${queryData.getRootFields()}`)
     }
   }
@@ -115,6 +114,11 @@ without involving Facebook Data Loader caching layer.
 - [x] Parsing info object
 - [x] Relational data query filtering
 - [ ] NoSQL data query filtering
+
+## Contributing
+
+- Star repository
+- Create issues with ideas and bugs
 
 ## License
 
