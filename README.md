@@ -99,6 +99,17 @@ const resolvers = {
 
 Derived fields  (for example `fullname` that consist of the `firstName`+`secondName` from database ) will now require additional checks in the resolver.
 
+## Performance consideration
+
+When using query mapper we can opt out from GraphQL query execution logic and only use only top level (root) query and mutation resolvers. 
+Root resolvers can fetch all data required from relationships and deliver data much faster than in classical execution plan.
+
+Additionally developers can use graphql compiler to provide V8 optimializations for Node.js queries.
+See https://github.com/zalando-incubator/graphql-jit for more information.
+
+Applying this patterns will help to archieve ~15 times better performance than when using graphql reference implementation 
+without involving Facebook Data Loader caching layer.
+
 ## Roadmap
 
 - [x] Parsing info object
