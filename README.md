@@ -96,18 +96,24 @@ const resolvers = {
 
 ## Limitations
 
-Derived fields  (for example `fullname` that consist of the `firstName`+`secondName` from database ) will now require additional checks in the resolver.
+Derived fields will still require additional checks in the resolver. 
+For example `fullname` that consist of the `firstName`+`secondName` from database:
+
+```javascript
+if(fields.fullname){
+    fields.push("firstName")
+    fields.push("secondName")
+}
+```
 
 ## Performance consideration
 
-When using query mapper we can opt out from GraphQL query execution logic and only use only top level (root) query and mutation resolvers. 
-Root resolvers can fetch all data required from relationships and deliver data much faster than in classical execution plan.
+When using query mapper we can opt out from default GraphQL query execution logic and only use only top level (root) query resolvers. Root resolvers can fetch all data required from relationships and deliver it much faster than in classical execution plan that needs to traverse thru entire graph.
 
 Additionally developers can use graphql compiler to provide V8 optimializations for Node.js queries.
 See https://github.com/zalando-incubator/graphql-jit for more information.
 
-Applying this patterns will help to archieve ~15 times better performance than when using graphql reference implementation 
-without involving Facebook Data Loader caching layer.
+Applying this patterns will help to archieve up to ~15 times better performance comparimng to using graphql reference implementation. This aproach will not require Facebook Data Loader cache layer sice all queries and data will be controlled from the root.
 
 ## Roadmap
 
@@ -118,7 +124,7 @@ without involving Facebook Data Loader caching layer.
 ## Contributing
 
 - Star repository
-- Create issues with ideas and bugs
+- Check CONTRIBUTING.md
 
 ## License
 
