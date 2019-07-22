@@ -3,12 +3,13 @@
   "version": "0.2.0",
   "description": "Query specific fields in resolvers",
   "main": "dist/index.js",
-  "bin": {
-    "graphback": "dist/index.js"
-  },
   "types": "types/index.d.ts",
   "typescript": {
     "definition": "types/index.d.ts"
+  },
+  "private": false,
+  "publishConfig": {
+    "access": "public"
   },
   "author": "wtrocki@redhat.com",
   "scripts": {
