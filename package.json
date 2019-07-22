@@ -1,5 +1,5 @@
 {
-  "name": "graphql-query-mapper",
+  "name": "@aerogear/graphql-query-mapper",
   "version": "0.2.0",
   "description": "Query specific fields in resolvers",
   "main": "dist/index.js",

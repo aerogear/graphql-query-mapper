@@ -28,7 +28,7 @@ Library exposes following methods:
 
 Example:
 ```javascript
-import { getQueryObject} from 'graphql-query-mapper'
+import { getQueryObject} from '@aerogear/graphql-query-mapper'
 
 const resolvers = {
   Query: {
