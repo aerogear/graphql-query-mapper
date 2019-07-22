@@ -19,11 +19,9 @@
     "strictNullChecks": false,
     "lib": [
       "esnext"
-    ]
-  },
-  "compilerOptions": {
-    "rootDir": "./src",
-    "outDir": "./dist"
+    ],
+    "outDir": "./dist",
+    "declarationDir": "./types"
   },
   "include": ["src/**/*"],
   "exclude": [
