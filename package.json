@@ -42,7 +42,7 @@
     ]
   },
   "engines": {
-    "node": "12.13.1"
+    "node": "12.14.0"
   },
   "devDependencies": {
     "@types/node": "8.10.59",
@@ -51,9 +51,9 @@
     "express-graphql": "0.9.0",
     "graphql": "14.5.8",
     "sqlite": "3.0.3",
-    "ts-node": "8.5.2",
+    "ts-node": "8.5.4",
     "tslint": "5.20.1",
-    "typescript": "3.7.2"
+    "typescript": "3.7.3"
   },
   "peerDependencies": {
     "graphql": "14.5.8"
