@@ -21,9 +21,9 @@ export class QueryObject {
      * Check if object has relations
      */
     public hasRelations() {
-        return this.relations.keys() !== 0
+        return Object.keys(this.relations).length !== 0
     }
-    
+
     /**
      * Checks if object has specified relation
      */
