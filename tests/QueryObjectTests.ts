@@ -17,3 +17,8 @@ test('test expandToGraph', async (t) => {
 
   t.deepEqual(graph[0].category, { 'name': 'test' })
 })
+
+test('test hasRelations', async (t) => {
+  const query = getQueryObject(info)
+  t.deepEqual(query.hasRelations(), true)
+})
