@@ -41,7 +41,7 @@
     ]
   },
   "engines": {
-    "node": ">=10.15.0"
+    "node": "19.8.1"
   },
   "devDependencies": {
     "@types/node": "8.10.64",
